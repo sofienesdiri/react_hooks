@@ -1,5 +1,7 @@
 import {Modal,Button} from "react-bootstrap"
  import { useState } from "react";
+ import Rating from '@mui/material/Rating';
+
 const ModalEdit=({el,movie,setMovie})=>{
     const [show, setShow] = useState(false);
 
@@ -8,7 +10,8 @@ const ModalEdit=({el,movie,setMovie})=>{
     const[esm,setEsm]= useState(el.title)
     const[about,setAbout]= useState(el.description)
     const[img,setImg]= useState(el.image)
-    const handleEdit=(a)=> setMovie(movie.map(al=>al.id===a ? {...al,title:esm,description:about,image:img}:al)) 
+    const[newRate,setNewRate]=useState(el.rating)
+    const handleEdit=(a)=> setMovie(movie.map(al=>al.id===a ? {...al,title:esm,description:about,image:img,rating:newRate}:al)) 
     return(
         <div>
             <>
@@ -24,6 +27,8 @@ const ModalEdit=({el,movie,setMovie})=>{
                     <input placeholder="description" value={about} onChange={(e)=>setAbout(e.target.value)}/>
                     <br/><br/>
                     <input placeholder="@link" value={img} onChange={(e)=>setImg(e.target.value)}/>
+                    <br/><br/>
+                    <Rating name="simple-controlled" value={newRate} onChange={ (e)=>setNewRate(e.target.value)}/>
                 </Modal.Body>
                 
                 <Modal.Footer>

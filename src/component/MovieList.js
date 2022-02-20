@@ -56,7 +56,7 @@ const x = movie.filter(el=> el.title.toUpperCase().includes(lawj.toUpperCase())&
                 
                 {
                     
-                    x.length ?   x : <img src="https://www.brainpop.com/conceptmap/img/img_noresults_movies.png"/>   
+                    x.length ?   x : <img src="https://www.brainpop.com/conceptmap/img/img_noresults_movies.png" width="700" heigth="700"/>   
                     
             
                 }
